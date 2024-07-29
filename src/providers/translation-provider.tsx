@@ -1,0 +1,27 @@
+"use client";
+
+import { I18nextProvider } from "react-i18next";
+import initTranslations from "@/i18n";
+import { Resource, createInstance, i18n } from "i18next";
+import React from "react";
+import { Locale, Namespaces } from "../../i18nConfig";
+
+interface ProviderProps {
+  children: React.ReactNode;
+  locale: Locale;
+  namespaces: Namespaces;
+  resources: Resource;
+}
+
+export default function TranslationsProvider({
+  children,
+  locale,
+  namespaces,
+  resources,
+}: ProviderProps) {
+  const i18n = createInstance();
+
+  initTranslations(locale, namespaces, i18n, resources);
+
+  return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
+}
