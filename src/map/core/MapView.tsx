@@ -1,26 +1,24 @@
 // eslint-disable-next-line import/no-unresolved
-// import mapboxglRtlTextUrl from '@mapbox/mapbox-gl-rtl-text/mapbox-gl-rtl-text.min?url';
+// import mapboxglRtlTextUrl from "@mapbox/mapbox-gl-rtl-text/mapbox-gl-rtl-text.min?url";
 import "maplibre-gl/dist/maplibre-gl.css";
 import maplibregl from "maplibre-gl";
-
-// import { googleProtocol } from "maplibre-google-maps";
+import { googleProtocol } from "maplibre-google-maps";
 import React, { useRef, useLayoutEffect, useEffect, useState } from "react";
 import { SwitcherControl } from "../switcher/switcher";
-import { useAttributePreference, usePreference } from "@/utils/preferences";
+import { useAttributePreference, usePreference } from "../../utils/preferences";
 import usePersistedState, {
   savePersistedState,
-} from "@/utils/usePersistedState";
+} from "../../utils/usePersistedState";
 import { mapImages } from "./preloadImages";
 import useMapStyles from "./useMapStyles";
 
 const element = document.createElement("div");
 element.style.width = "100%";
 element.style.height = "100%";
-element.style.minHeight = "400px";
 element.style.boxSizing = "initial";
 
 // maplibregl.setRTLTextPlugin(mapboxglRtlTextUrl);
-// maplibregl.addProtocol("google", googleProtocol);
+maplibregl.addProtocol("google", googleProtocol);
 
 export const map = new maplibregl.Map({
   container: element,

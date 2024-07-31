@@ -15,9 +15,9 @@ import { filteredPositions } from "@/utils/data";
 
 const MainMap = () => {
   return (
-    <div className="h-full">
+    <div className="h-[300px]">
       <MapView>
-        <MapPositions positions={filteredPositions} />
+        <MapPositions positions={filteredPositions} showStatus />
         <MapDefaultCamera />
       </MapView>
     </div>

@@ -1,13 +1,10 @@
 import { useId, useCallback, useEffect } from "react";
-// import { useSelector } from "react-redux";
-// import { useMediaQuery } from "@mui/material";
-// import { useTheme } from "@mui/styles";
 import { map } from "./core/MapView";
-import { formatTime, getStatusColor } from "@/utils/formatter";
+import { formatTime, getStatusColor } from "../utils/formatter";
 import { mapIconKey } from "./core/preloadImages";
-import { useAttributePreference } from "@/utils/preferences";
-import { useCatchCallback } from "@/components/hooks/reactHelper";
-import { state } from "@/utils/data";
+import { useAttributePreference } from "../utils/preferences";
+import { useCatchCallback } from "../hooks/reactHelper";
+import { state } from "../utils/data";
 
 const useSelector = (callback) => callback(state);
 
@@ -21,10 +18,6 @@ const MapPositions = ({
   const id = useId();
   const clusters = `${id}-clusters`;
   const selected = `${id}-selected`;
-
-  // const theme = useTheme();
-  // const desktop = useMediaQuery(theme.breakpoints.up("md"));
-  //true mean we are on desktop make it dynamic
   const iconScale = useAttributePreference("iconScale", true ? 0.75 : 1);
 
   const devices = useSelector((state) => state.devices.items);

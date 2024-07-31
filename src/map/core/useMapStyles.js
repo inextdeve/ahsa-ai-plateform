@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { useAttributePreference } from "@/utils/preferences";
-import { state } from "@/utils/data";
+import { useAttributePreference } from "../../utils/preferences";
+import { state } from "../../utils/data";
 
 const useSelector = (callback) => callback(state);
 

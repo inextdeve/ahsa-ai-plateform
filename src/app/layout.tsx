@@ -1,4 +1,3 @@
-"use client";
 import "@/styles/globals.css";
 // import type { Metadata } from "next";
 import { Providers } from "@/providers";
@@ -8,10 +7,8 @@ import ParticleNetworkBG from "@/components/ParticleNetwork";
 import TranslationsProvider from "@/providers/translation-provider";
 import initTranslations from "@/i18n";
 import { Locale, Namespaces } from "../../i18nConfig";
-import { useEffectAsync } from "@/components/hooks/reactHelper";
-import { useState } from "react";
-import preloadImages from "@/map/core/preloadImages";
-preloadImages();
+// import { useEffectAsync } from "@/components/hooks/reactHelper";
+// import { useState } from "react";
 const i18nNamespaces: Namespaces = ["common", "sidebar"];
 
 // export const metadata: Metadata = {
@@ -26,8 +23,6 @@ export default function RootLayout({
   children: React.ReactNode;
   locale: Locale;
 }) {
-  const [resources, setResources] = useState(null);
-
   // useEffectAsync(async () => {
   //   const { resources } = await initTranslations(locale, i18nNamespaces);
 

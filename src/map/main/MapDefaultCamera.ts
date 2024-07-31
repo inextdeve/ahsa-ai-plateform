@@ -1,13 +1,12 @@
 import maplibregl from "maplibre-gl";
 import { useEffect, useState } from "react";
-import { usePreference } from "@/utils/preferences";
+import { usePreference } from "../../utils/preferences";
 import { map } from "../core/MapView";
-import { state } from "@/utils/data";
+import { state } from "../../utils/data";
 
 const useSelector = (callback) => callback(state);
-
 const MapDefaultCamera = () => {
-  const selectedDeviceId = null;
+  const selectedDeviceId = useSelector((state) => state.devices.selectedId);
   const positions = useSelector((state) => state.session.positions);
 
   const defaultLatitude = usePreference("latitude");
