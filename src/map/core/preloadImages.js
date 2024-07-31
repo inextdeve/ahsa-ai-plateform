@@ -25,6 +25,7 @@ import tramSvg from "@/resources/images/icon/tram.svg";
 import trolleybusSvg from "@/resources/images/icon/trolleybus.svg";
 import truckSvg from "@/resources/images/icon/truck.svg";
 import vanSvg from "@/resources/images/icon/van.svg";
+import lightSvg from "@/resources/images/icon/light.svg";
 
 export const mapIcons = {
   animal: animalSvg,
@@ -49,6 +50,7 @@ export const mapIcons = {
   trolleybus: trolleybusSvg,
   truck: truckSvg,
   van: vanSvg,
+  light: lightSvg,
 };
 
 export const mapIconKey = (category) =>
@@ -145,7 +147,6 @@ const mapPalette = {
 };
 
 export default async () => {
-  console.log("Preload");
   const background = await loadImage(backgroundSvg);
   mapImages.background = await prepareIcon(background);
   mapImages.direction = await prepareIcon(await loadImage(directionSvg));

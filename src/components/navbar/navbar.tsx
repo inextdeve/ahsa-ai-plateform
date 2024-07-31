@@ -29,7 +29,7 @@ export const NavbarWrapper = ({ children }: Props) => {
           <Image width={35} height={35} alt="left-logo" src="/left_logo.png" />
         </NavbarContent>
       </Navbar>
-      {children}
+      <div className="p-5">{children}</div>
     </div>
   );
 };

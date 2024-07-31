@@ -23,7 +23,7 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 export const SidebarWrapper = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("sidebar");
 
   const pathname = usePathname();
   const { collapsed, setCollapsed } = useSidebarContext();

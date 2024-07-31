@@ -1,6 +1,7 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import LineChart from "@/components/home/line-chart";
-import ViolationsMap from "@/components/violations/map/MainMap";
+import ViolationsMap from "@/components/violations/map/violations-map";
+import MapFilter from "@/components/violations/map/map-filter";
 
 const streams = [
   {
@@ -46,13 +47,19 @@ const Page = () => {
   return (
     <div>
       <div className="map">
-        <Card className="overflow-hidden">
-          <CardBody className="min-h-[400px]">
-            <ViolationsMap />
+        <Card className="bg-black/50 border-1 border-primary">
+          <CardHeader className="justify-between">
+            {/* Filter */}
+            <MapFilter />
+          </CardHeader>
+          <CardBody className="h-[400px]">
+            <div className="w-full h-full rounded overflow-hidden relative">
+              <ViolationsMap />
+            </div>
           </CardBody>
         </Card>
       </div>
-      {/* <div className="flex gap-2 p-2">
+      <div className="flex justify-around gap-2 my-4">
         {streams.map((stream) => (
           <Card className="bg-black/50 border-1 border-primary w-full">
             <CardHeader className="justify-center">{stream.title}</CardHeader>
@@ -71,7 +78,7 @@ const Page = () => {
             <LineChart chartData={data} />
           </CardBody>
         </Card>
-      </div> */}
+      </div>
     </div>
   );
 };

@@ -41,7 +41,7 @@ export default async function Home({ params: { locale } }: PageProps) {
   };
 
   return (
-    <main className="p-5 grid gap-2">
+    <main className="grid gap-2">
       <Card className="bg-black/50 border-1 border-primary w-full">
         <CardBody>
           <LineChart chartData={data} />
