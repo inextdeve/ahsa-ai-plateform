@@ -1,0 +1,29 @@
+{
+    "title": "تعليمات استخدام API",
+    "apiAccess": {
+        "title": "الوصول إلى API",
+        "p": "يمكنك الوصول إلى واجهة برمجة التطبيقات الخاصة بالنظام عبر الروابط التالية:",
+        "list": {
+            "1": "تسجيل الدخول: http://v.ahsa.care/StandardApiAction_login.action?account=admin&password=admin",
+            "2": "الحصول على البث المباشر: http://v.ahsa.care/StandardApiAction_getAllDevice.action?jsession={jsession}",
+            "3": "إجراءات أخرى: يرجى الرجوع إلى الوثائق الرسمية لمزيد من التفاصيل."
+        }
+    },
+    "apiExample": {
+        "title": "مثال على الاستخدام",
+        "p": "للحصول على جلسة جديدة (jsession)، يمكنك استخدام الكود التالي بلغة Python:",
+        "code": "import requests\nlogin_url = \"http://v.ahsa.care/StandardApiAction_login.action?account=admin&password=admin\"\nresponse = requests.get(login_url)\ndata = response.json()\njsession = data['jsession']\nprint(f\"JSESSION: {jsession}\")"
+    },
+    "jsessionUsage": {
+        "title": "استخدام jsession في طلبات API",
+        "p": "بعد الحصول على jsession، يمكنك استخدامه لجلب البث المباشر أو القيام بأي إجراءات أخرى. على سبيل المثال:",
+        "code": "stream_url = f\"http://v.ahsa.care/StandardApiAction_getAllDevice.action?jsession={jsession}\"\nresponse = requests.get(stream_url)\ndevices = response.json()\nprint(devices)"
+    },
+    "notes": {
+        "title": "ملاحظات",
+        "list": {
+            "1": "تأكد من تحديث jsession بشكل دوري لأنه قد يكون له فترة انتهاء محددة.",
+            "2": "لمزيد من المعلومات حول الطرق المتاحة في API، يرجى الاطلاع على الوثائق الرسمية."
+        }
+    }
+}

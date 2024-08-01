@@ -6,5 +6,7 @@
   "liveStream": "البث المباشر",
   "performance": "مؤشرات الأداء",
   "settings": "الإعدادات",
-  "api": "API"
+  "api": "واجهة برمجة تطبيق",
+  "mainMenu": "القائمة الرئيسية",
+  "general": "عام"
 }

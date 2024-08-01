@@ -57,7 +57,7 @@ export const SidebarWrapper = () => {
               isActive={pathname === "/"}
               href="/"
             />
-            <SidebarMenu title="Main Menu">
+            <SidebarMenu title={t("mainMenu")}>
               <SidebarItem
                 isActive={pathname === "/violations"}
                 title={t("violations")}
@@ -68,6 +68,7 @@ export const SidebarWrapper = () => {
                 isActive={pathname === "/road-monitoring"}
                 title={t("roadMonitoring")}
                 icon={<TrafficCone />}
+                href="road-monitoring"
               />
               <SidebarItem
                 isActive={pathname === "/service-tracking"}
@@ -88,14 +89,16 @@ export const SidebarWrapper = () => {
                 isActive={pathname === "/settings"}
                 title={t("settings")}
                 icon={<Settings />}
+                href="settings"
               />
             </SidebarMenu>
 
-            <SidebarMenu title="General">
+            <SidebarMenu title={t("general")}>
               <SidebarItem
-                isActive={pathname === "/api"}
+                isActive={pathname === "/docs"}
                 title={t("api")}
                 icon={<CodeXml />}
+                href="docs"
               />
             </SidebarMenu>
           </div>

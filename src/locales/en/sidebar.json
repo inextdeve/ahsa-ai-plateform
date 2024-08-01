@@ -6,5 +6,7 @@
   "liveStream": "Live Stream",
   "performance": "Performance",
   "settings": "Settings",
-  "api": "API"
+  "api": "API",
+  "mainMenu": "Main Menu",
+  "general": "General"
 }

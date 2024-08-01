@@ -1,0 +1,13 @@
+{
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light",
+    "changeTheme": "Change theme",
+    "autoUpdate": "Automatic updates",
+    "updateInterval": "Update interval",
+    "seconds": "Seconds",
+    "en": "English",
+    "ar": "Arabic",
+    "language": "Language",
+    "changeLang": "Change language"
+}

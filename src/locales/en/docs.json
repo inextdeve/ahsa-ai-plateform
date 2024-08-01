@@ -1,0 +1,29 @@
+{
+    "title": "API Usage Instructions",
+    "apiAccess": {
+        "title": "API Access",
+        "p": "You can access the system API through the following links:",
+        "list": {
+            "1": "Login: http://v.ahsa.care/StandardApiAction_login.action?account=admin&password=admin",
+            "2": "Get live stream: http://v.ahsa.care/StandardApiAction_getAllDevice.action?jsession={jsession}",
+            "3": "Other procedures: Please refer to the official documents for more details."
+        }
+    },
+    "apiExample": {
+        "title": "Using example",
+        "p": "To obtain a new session (jsession), you can use the following code in Python:",
+        "code": "import requests\nlogin_url = \"http://v.ahsa.care/StandardApiAction_login.action?account=admin&password=admin\"\nresponse = requests.get(login_url)\ndata = response.json()\njsession = data['jsession']\nprint(f\"JSESSION: {jsession}\")"
+    },
+    "jsessionUsage": {
+        "title": "Using jsession in API Requests",
+        "p": "After obtaining the jsession, you can use it to fetch the live stream or perform any other actions. For example:",
+        "code": "stream_url = f\"http://v.ahsa.care/StandardApiAction_getAllDevice.action?jsession={jsession}\"\nresponse = requests.get(stream_url)\ndevices = response.json()\nprint(devices)"
+    },
+    "notes": {
+        "title": "Notes",
+        "list": {
+            "1": "Make sure to update jsession periodically as it may have a specific expiration period.",
+            "2": "For more information about the methods available in the API, please see the official documentation."
+        }
+    }
+}
