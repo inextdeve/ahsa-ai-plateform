@@ -4,6 +4,9 @@ import { useLockedBody } from "../hooks/useBodyLock";
 import { NavbarWrapper } from "../navbar/navbar";
 import { SidebarWrapper } from "../sidebar/sidebar";
 import { SidebarContext } from "./layout-context";
+import preloadImages from "@/map/core/preloadImages";
+
+preloadImages();
 
 interface Props {
   children: React.ReactNode;

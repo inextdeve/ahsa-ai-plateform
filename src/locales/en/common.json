@@ -1,5 +1,13 @@
 {
   "home": "Home",
   "hello": "Hello Bro",
-  "title": "Integration Platform - Artificial Intelligence"
+  "title": "Integration Platform - Artificial Intelligence",
+  "processed": "Processed",
+  "none-processed": "Unprocessed",
+  "all": "All",
+  "violations": "Violations",
+  "waste": "Waste",
+  "dust": "Dust",
+  "scattered": "Scattered",
+  "poles": "Poles"
 }

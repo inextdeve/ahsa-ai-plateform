@@ -22,4 +22,6 @@ export type Locale = (typeof locales)[number];
 
 export type Namespaces = ("common" | "sidebar")[];
 
+export const i18nNamespaces: Namespaces = ["common", "sidebar"];
+
 export default i18nConfig;

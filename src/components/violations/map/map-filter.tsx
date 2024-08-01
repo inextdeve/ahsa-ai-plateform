@@ -15,14 +15,22 @@ const MapFilter = () => {
 
   return (
     <>
-      <RadioGroup size="sm" classNames={{ wrapper: "flex-row text-primary" }}>
+      <RadioGroup
+        defaultValue="all"
+        size="sm"
+        classNames={{ wrapper: "flex-row text-primary" }}
+      >
         <Radio value="processed">{t("processed")}</Radio>
         <Radio value="none-processed">{t("none-processed")}</Radio>
-        <Radio value="all">{t("all")}</Radio>
+        <Radio defaultChecked value="all">
+          {t("all")}
+        </Radio>
       </RadioGroup>
-      <Select label="violations" className="max-w-xs" size="sm">
+      <Select label={t("violations")} className="max-w-[120px]" size="sm">
         {violationsType.map((violationType) => (
-          <SelectItem key={violationType.id}>{violationType.name}</SelectItem>
+          <SelectItem key={violationType.id}>
+            {t(violationType.name)}
+          </SelectItem>
         ))}
       </Select>
     </>
