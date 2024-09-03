@@ -18,11 +18,17 @@ const MapFilter = () => {
       <RadioGroup
         defaultValue="all"
         size="sm"
-        classNames={{ wrapper: "flex-row text-primary" }}
+        classNames={{
+          wrapper: "flex-row text-primary",
+        }}
       >
-        <Radio value="processed">{t("processed")}</Radio>
-        <Radio value="none-processed">{t("none-processed")}</Radio>
-        <Radio defaultChecked value="all">
+        <Radio className="gap-1" value="processed">
+          {t("processed")}
+        </Radio>
+        <Radio className="gap-1" value="none-processed">
+          {t("none-processed")}
+        </Radio>
+        <Radio className="gap-1" defaultChecked value="all">
           {t("all")}
         </Radio>
       </RadioGroup>

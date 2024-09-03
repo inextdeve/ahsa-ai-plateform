@@ -5,8 +5,8 @@ import initTranslations from "@/i18n";
 import { Locale, i18nNamespaces } from "../../../../i18nConfig";
 import { Providers } from "@/providers";
 import ParticleNetworkBG from "@/components/ParticleNetwork";
-import { fontSans, fontCairo } from "@/config/fonts";
-import clsx from "clsx";
+import { fontSans, fontAlmarai, fontRoboto } from "@/config/fonts";
+import { cn } from "@/utils/utils";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -22,7 +22,11 @@ export default async function RootLayout({
   const { resources, i18n } = await initTranslations(locale, i18nNamespaces);
   return (
     <html lang={i18n.language} dir={i18n.dir()}>
-      <body className={clsx("font-sans antialiased", fontCairo.className)}>
+      <body
+        className={cn("font-sans antialiased", fontAlmarai.className, {
+          [fontRoboto.className]: i18n.dir() === "ltr",
+        })}
+      >
         <Providers>
           <TranslationsProvider
             namespaces={i18nNamespaces}

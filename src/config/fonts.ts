@@ -1,7 +1,8 @@
 import {
   Fira_Code as FontMono,
   Inter as FontSans,
-  Cairo as FontCairo,
+  Roboto as FontRoboto,
+  Almarai,
 } from "next/font/google";
 
 export const fontSans = FontSans({
@@ -14,7 +15,16 @@ export const fontMono = FontMono({
   variable: "--font-mono",
 });
 
-export const fontCairo = FontCairo({
+export const fontAlmarai = Almarai({
   subsets: ["arabic"],
-  variable: "--font-cairo",
+  variable: "--font-almarai",
+  weight: "400",
 });
+
+export const fontRoboto = FontRoboto({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+//Cairo Good
+//Almarai Good

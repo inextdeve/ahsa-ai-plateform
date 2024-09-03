@@ -54,7 +54,7 @@ const Page = () => {
           </CardHeader>
           <CardBody className="h-[400px]">
             <div className="w-full h-full rounded overflow-hidden relative">
-              <ViolationsMap />
+              {/* <ViolationsMap /> */}
             </div>
           </CardBody>
         </Card>
