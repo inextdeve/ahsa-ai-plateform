@@ -7,6 +7,7 @@ import LineChart from "@/components/home/line-chart";
 import { Card, CardBody } from "@nextui-org/react";
 import PieChart from "@/components/home/pie-chart";
 import PolarChart from "@/components/home/polar-chart";
+import { useAppSelector } from "@/components/hooks/rtk";
 
 interface PageProps {
   params: {
@@ -22,17 +23,28 @@ var currentMonthDays = Array.from(
     "/" +
     (currentDate.getMonth() + 1).toString().padStart(2, "0")
 );
-const Data = currentMonthDays.map((day) => Math.floor(Math.random() * 9) + 2);
 
 export default async function Home({ params: { locale } }: PageProps) {
   const { t } = await initTranslations(locale, ["common"]);
 
+  // const kpis = useAppSelector((state) => state.reports.kpis);
+
   const data = {
-    labels: currentMonthDays,
+    labels: [
+      "27/08",
+      "28/08",
+      "29/08",
+      "30/08",
+      "31/08",
+      "01/09",
+      "02/09",
+      "03/09",
+      "04/09",
+    ],
     datasets: [
       {
-        label: "Users Gained",
-        data: currentMonthDays.map((day) => Math.floor(Math.random() * 9) + 2),
+        label: "Notes",
+        data: [2, 10, 4, 9, 3, 1, 12, 9, 1],
         backgroundColor: ["#0cc1c7"],
         borderColor: "#0cc1c7",
         borderWidth: 2,
@@ -42,13 +54,13 @@ export default async function Home({ params: { locale } }: PageProps) {
 
   return (
     <main className="grid gap-2">
-      <Card className="bg-black/50 border-1 border-primary w-full">
+      <Card className="bg-white/70 dark:bg-black/50 border-1 border-primary w-full">
         <CardBody>
           <LineChart chartData={data} />
         </CardBody>
       </Card>
       <div className="flex gap-2">
-        <Card className="bg-black/50 border-1 border-primary w-full">
+        <Card className="bg-white/70 dark:bg-black/50 border-1 border-primary w-full">
           <CardBody>
             <PieChart
               chartData={{
@@ -58,7 +70,7 @@ export default async function Home({ params: { locale } }: PageProps) {
             />
           </CardBody>
         </Card>
-        <Card className="bg-black/50 border-1 border-primary w-full">
+        <Card className="bg-white/70 dark:bg-black/50 border-1 border-primary w-full">
           <CardBody>
             <PolarChart
               chartData={{

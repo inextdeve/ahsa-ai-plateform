@@ -5,6 +5,8 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "@/store";
 
 Chart.register(CategoryScale);
 
@@ -21,7 +23,7 @@ export function Providers({ children, themeProps }: ProvidersProps) {
         attribute="class"
         {...themeProps}
       >
-        {children}
+        <ReduxProvider store={store}>{children}</ReduxProvider>
       </NextThemesProvider>
     </NextUIProvider>
   );

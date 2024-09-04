@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Sidebar } from "./sidebar.styles";
-import { Tooltip } from "@nextui-org/react";
+import { Button, Tooltip } from "@nextui-org/react";
 import { SidebarItem } from "./sidebar-item";
 import { SidebarMenu } from "./sidebar-menu";
 import { useSidebarContext } from "../layout/layout-context";
@@ -12,7 +12,6 @@ import {
   Gauge,
   Home,
   ListTodo,
-  LogOut,
   Settings,
   TrafficCone,
   TriangleAlert,
@@ -23,6 +22,8 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import { pathCheck, routesWithLocales } from "@/utils/path";
 import { locales } from "../../../i18nConfig";
+import LogoutButton from "./logout-button";
+import FullscreenButton from "./fullscreen-button";
 
 export const SidebarWrapper = () => {
   const { t } = useTranslation("sidebar");
@@ -76,9 +77,10 @@ export const SidebarWrapper = () => {
                 title={t("serviceTracking")}
               />
               <SidebarItem
-                isActive={pathCheck("/customers", pathname)}
+                isActive={pathCheck("/live-streaming", pathname)}
                 title={t("liveStream")}
                 icon={<Video />}
+                href="live-stream"
               />
               <SidebarItem
                 isActive={pathCheck("/performance", pathname)}
@@ -105,7 +107,7 @@ export const SidebarWrapper = () => {
           <div className={Sidebar.Footer()}>
             <Tooltip content={"Logout"} color="primary">
               <div className="max-w-fit">
-                <LogOut />
+                <LogoutButton />
               </div>
             </Tooltip>
             {/* <Tooltip content={"Profile"} color="primary">
@@ -113,7 +115,7 @@ export const SidebarWrapper = () => {
             </Tooltip> */}
             <Tooltip content={"Fullscreen"} color="primary">
               <div className="max-w-fit">
-                <Fullscreen />
+                <FullscreenButton />
               </div>
             </Tooltip>
           </div>

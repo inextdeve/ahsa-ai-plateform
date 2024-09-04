@@ -20,13 +20,24 @@ const i18nConfig = {
 
 export type Locale = (typeof locales)[number];
 
-export type Namespaces = ("common" | "sidebar" | "settings" | "docs")[];
+export type Namespaces = (
+  | "common"
+  | "sidebar"
+  | "settings"
+  | "docs"
+  | "auth"
+  | "road"
+  | "live"
+)[];
 
 export const i18nNamespaces: Namespaces = [
   "common",
   "sidebar",
   "settings",
   "docs",
+  "auth",
+  "road",
+  "live",
 ];
 
 export default i18nConfig;

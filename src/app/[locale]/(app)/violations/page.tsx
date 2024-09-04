@@ -2,6 +2,7 @@ import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import LineChart from "@/components/home/line-chart";
 import ViolationsMap from "@/components/violations/map/violations-map";
 import MapFilter from "@/components/violations/map/map-filter";
+import initTranslations from "@/i18n";
 
 const streams = [
   {
@@ -31,7 +32,7 @@ var currentMonthDays = Array.from(
     (currentDate.getMonth() + 1).toString().padStart(2, "0")
 );
 
-const Page = () => {
+const Page = async ({}) => {
   const data = {
     labels: currentMonthDays,
     datasets: [
@@ -54,7 +55,7 @@ const Page = () => {
           </CardHeader>
           <CardBody className="h-[400px]">
             <div className="w-full h-full rounded overflow-hidden relative">
-              {/* <ViolationsMap /> */}
+              <ViolationsMap />
             </div>
           </CardBody>
         </Card>

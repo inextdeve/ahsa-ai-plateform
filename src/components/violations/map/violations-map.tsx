@@ -1,5 +1,6 @@
 "use client";
 
+import { useAppSelector } from "@/components/hooks/rtk";
 import MapMarkers from "@/map/MapMarkers";
 import MapPositions from "@/map/MapPositions";
 // import dynamic from "next/dynamic";
@@ -14,56 +15,8 @@ import MapView from "@/map/core/MapView";
 import MapDefaultCamera from "@/map/main/MapDefaultCamera";
 import { filteredPositions } from "@/utils/data";
 import { cn } from "@/utils/utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-const violations = [
-  {
-    id: 82888204,
-    latitude: 27.0674,
-    longitude: 49.604185,
-    category: "light",
-    title: "Pole",
-    type: "pole",
-    processed: true,
-  },
-  {
-    id: 82888205,
-    latitude: 27.0374,
-    longitude: 49.544185,
-    category: "light",
-    title: "Waste",
-    type: "waste",
-    processed: false,
-  },
-  {
-    id: 82888206,
-    latitude: 27.0574,
-    longitude: 49.404185,
-    category: "dust",
-    title: "Dust",
-    type: "dust",
-    processed: true,
-  },
-  {
-    id: 82888207,
-    latitude: 27.0974,
-    longitude: 49.554185,
-    category: "scattered",
-    title: "Scattered",
-    type: "scattered",
-    processed: true,
-  },
-  {
-    id: 82888208,
-    latitude: 27.0974,
-    longitude: 49.504185,
-    category: "scattered",
-    title: "Scattered",
-    type: "scattered",
-    processed: false,
-  },
-];
 
 const filterType = (type: string) => {
   return (ele) => ele.type === type;
@@ -71,7 +24,15 @@ const filterType = (type: string) => {
 
 const MainMap = () => {
   const { t, i18n } = useTranslation();
-  const [markers] = useState(violations);
+  const violations = useAppSelector(
+    (state) => state.violations.filteredViolations
+  );
+  const [markers, setMarkers] = useState(violations);
+
+  useEffect(() => {
+    console.log(violations);
+    setMarkers(violations);
+  }, [violations]);
 
   const filteredMarkers = markers.map((violation) =>
     violation.processed

@@ -26,6 +26,10 @@ import trolleybusSvg from "@/resources/images/icon/trolleybus.svg";
 import truckSvg from "@/resources/images/icon/truck.svg";
 import vanSvg from "@/resources/images/icon/van.svg";
 import lightSvg from "@/resources/images/icon/light.svg";
+import dustSvg from "@/resources/images/icon/dust.svg";
+import poleSvg from "@/resources/images/icon/pole.svg";
+import scatteredSvg from "@/resources/images/icon/scattered.svg";
+import wasteSvg from "@/resources/images/icon/waste.svg";
 
 export const mapIcons = {
   animal: animalSvg,
@@ -51,6 +55,10 @@ export const mapIcons = {
   truck: truckSvg,
   van: vanSvg,
   light: lightSvg,
+  dust: dustSvg,
+  pole: poleSvg,
+  scattered: scatteredSvg,
+  waste: wasteSvg,
 };
 
 export const mapIconKey = (category) =>

@@ -1,46 +1,28 @@
-import "@/styles/globals.css";
+"use client";
+import useAuth from "@/components/hooks/useAuth";
 import { Layout } from "@/components/layout/layout";
-import TranslationsProvider from "@/providers/translation-provider";
-import initTranslations from "@/i18n";
-import { Locale, i18nNamespaces } from "../../../../i18nConfig";
-import { Providers } from "@/providers";
-import ParticleNetworkBG from "@/components/ParticleNetwork";
-import { fontSans, fontAlmarai, fontRoboto } from "@/config/fonts";
-import { cn } from "@/utils/utils";
+import { FullScreenProvider } from "@/providers/full-screen";
+import { Progress } from "@nextui-org/react";
 
-interface LayoutProps {
-  children: React.ReactNode;
-  params: {
-    locale: Locale;
-  };
-}
+export default function AppLayout({ children }: { children: React.ReactNode }) {
+  const [initialized] = useAuth();
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: LayoutProps) {
-  const { resources, i18n } = await initTranslations(locale, i18nNamespaces);
   return (
-    <html lang={i18n.language} dir={i18n.dir()}>
-      <body
-        className={cn("font-sans antialiased", fontAlmarai.className, {
-          [fontRoboto.className]: i18n.dir() === "ltr",
-        })}
-      >
-        <Providers>
-          <TranslationsProvider
-            namespaces={i18nNamespaces}
-            locale={locale}
-            resources={resources}
-          >
-            <Layout>{children}</Layout>
-          </TranslationsProvider>
-        </Providers>
-        <div className="absolute inset-0 -z-50">
-          <div id="particle-canvas"></div>
-        </div>
-        <ParticleNetworkBG />
-      </body>
-    </html>
+    <>
+      {!initialized ? (
+        <Progress
+          size="sm"
+          isIndeterminate
+          aria-label="Loading..."
+          className="min-w-full"
+        />
+      ) : (
+        <FullScreenProvider>
+          <Layout>
+            <div>{children}</div>
+          </Layout>
+        </FullScreenProvider>
+      )}
+    </>
   );
 }
