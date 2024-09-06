@@ -4,6 +4,8 @@ import { errorsReducer as errors } from "./errors";
 import { sessionReducer as session } from "./session";
 import { violationsReducer as violations } from "./violations";
 import { reportsReducer as reports } from "./reports";
+import { trackingReducer as tracking } from "./tracking";
+
 import throttleMiddleware from "./throttleMiddleware";
 
 const reducer = combineReducers({
@@ -11,12 +13,14 @@ const reducer = combineReducers({
   session,
   violations,
   reports,
+  tracking,
 });
 
 export { errorsActions } from "./errors";
 export { sessionActions } from "./session";
 export { violationsActions } from "./violations";
 export { reportsActions } from "./reports";
+export { trackingActions } from "./tracking";
 
 const store = configureStore({
   reducer,

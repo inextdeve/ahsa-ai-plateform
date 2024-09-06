@@ -4,5 +4,8 @@
   "vehiclesThisMinute": "Vehicles This Minute",
   "trafficViolations": "Traffic Violations",
   "accidents": "Accidents",
-  "peakRate": "Peak Rate"
+  "peakRate": "Peak Rate",
+  "totalStreetLength": "Total street length",
+  "wasRecorded": "Recorded (KM)",
+  "violations": "Violations"
 }

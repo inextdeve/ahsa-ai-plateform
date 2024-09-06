@@ -61,15 +61,8 @@ const Page = async ({ params: { locale } }: PageProps) => {
         </span>
       </h1>
 
-      <TransparentCard className="col-span-3 h-[calc(70vh)]">
-        <CardHeader>
-          {t("liveViolations")}
-          <Dot className="w-10 h-10 text-red-500 animate-ping" />
-        </CardHeader>
-        <CardBody>
-          <LiveViolations />
-        </CardBody>
-      </TransparentCard>
+      <LiveViolations className="col-span-3 h-[70vh]" />
+
       <div className="col-span-9">
         <div className="flex justify-around gap-2 my-4 mt-0">
           {streams.map((stream) => (

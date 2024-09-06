@@ -6,5 +6,13 @@
   "wast": "Wast",
   "consultLocation": "Consult Location",
   "liveStream": "Live Stream",
-  "headerDesc": "Live view of cameras and recording of violations"
+  "headerDesc": "Live view of cameras and recording of violations",
+  "accident": "Accident",
+  "low": "Low",
+  "high": "High",
+  "med": "Med",
+  "severity": "Severity",
+  "id": "Id",
+  "violation": "Violation",
+  "location": "Location"
 }

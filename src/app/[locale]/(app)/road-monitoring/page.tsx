@@ -25,23 +25,23 @@ const Page = async ({ params: { locale } }: PageProps) => {
       <div className="grid grid-cols-3 gap-3">
         <Card className="bg-primary hover:bg-primary/80">
           <CardHeader className="flex justify-center">
-            <p className="text-xl">{t("vehiclesThisMinute")}</p>
+            <p className="text-xl">{t("totalStreetLength")}</p>
           </CardHeader>
-          <CardBody className="text-3xl text-center font-bold">15</CardBody>
+          <CardBody className="text-3xl text-center font-bold">1000</CardBody>
         </Card>
         <Card className="bg-primary hover:bg-primary/80">
           <CardHeader className="flex justify-center">
             {" "}
-            <p className="text-xl">{t("accidents")}</p>
+            <p className="text-xl">{t("wasRecorded")}</p>
           </CardHeader>
-          <CardBody className="text-3xl text-center font-bold">5</CardBody>
+          <CardBody className="text-3xl text-center font-bold">458</CardBody>
         </Card>
         <Card className="bg-primary hover:bg-primary/80">
           <CardHeader className="flex justify-center">
             {" "}
-            <p className="text-xl">{t("trafficViolations")}</p>
+            <p className="text-xl">{t("violations")}</p>
           </CardHeader>
-          <CardBody className="text-3xl text-center font-bold">30</CardBody>
+          <CardBody className="text-3xl text-center font-bold">27</CardBody>
         </Card>
       </div>
       <Card className="bg-white/70 dark:bg-black/50 border-1 border-primary w-full">

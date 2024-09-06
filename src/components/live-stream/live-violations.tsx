@@ -1,103 +1,93 @@
 "use client";
-import { CardHeader } from "@nextui-org/react";
-import TransparentCard from "../common/transparent-card";
-import { cn } from "@/utils/utils";
-import Link from "next/link";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  User,
+  Chip,
+  Tooltip,
+  ChipProps,
+  getKeyValue,
+} from "@nextui-org/react";
+import { columns, violations } from "./data";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
+import { LocateFixed } from "lucide-react";
 
-const violationsData = [
-  {
-    name: "route",
-    severity: "high",
-  },
-  {
-    name: "dust",
-    severity: "low",
-  },
-  {
-    name: "pole",
-    severity: "medium",
-  },
-  {
-    name: "wast",
-    severity: "medium",
-  },
-  {
-    name: "route",
-    severity: "high",
-  },
-  {
-    name: "pole",
-    severity: "medium",
-  },
-  {
-    name: "pole",
-    severity: "medium",
-  },
-  {
-    name: "wast",
-    severity: "medium",
-  },
-  {
-    name: "route",
-    severity: "high",
-  },
-  {
-    name: "wast",
-    severity: "medium",
-  },
-  {
-    name: "route",
-    severity: "high",
-  },
-  {
-    name: "dust",
-    severity: "low",
-  },
-
-  {
-    name: "dust",
-    severity: "low",
-  },
-  {
-    name: "pole",
-    severity: "medium",
-  },
-  {
-    name: "wast",
-    severity: "medium",
-  },
-];
-
-const LiveViolations = () => {
-  const { t } = useTranslation("live");
-  return (
-    <>
-      <ul>
-        {violationsData.map((violation, index) => (
-          <li className="text-right">
-            <span>{index * 1000}</span> -{" "}
-            <span
-              className={cn({
-                "text-warning-400": violation.severity === "medium",
-                "text-danger-400": violation.severity === "high",
-                "text-white-400": violation.severity === "low",
-              })}
-            >
-              {t(violation.name)}
-            </span>
-            :{" "}
-            <Link
-              className="underline text-sm light"
-              href="https://maps.app.goo.gl/fwAHeLWwP5V9Bt8s5"
-            >
-              {t("consultLocation")}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </>
-  );
+const statusColorMap: Record<string, ChipProps["color"]> = {
+  low: "success",
+  high: "danger",
+  med: "warning",
 };
 
-export default LiveViolations;
+type Violation = (typeof violations)[0];
+
+export default function LiveViolations({ className }: { className?: string }) {
+  const { t } = useTranslation("live");
+  const renderCell = React.useCallback(
+    (violation: Violation, columnKey: React.Key) => {
+      const cellValue = violation[columnKey as keyof Violation];
+
+      switch (columnKey) {
+        case "location":
+          return (
+            <Link
+              href={violation.location}
+              target="_blank"
+              className="flex justify-center items-center"
+            >
+              <LocateFixed className="w-4 h-4 text-primary hover:text-primary/70" />
+            </Link>
+          );
+        case "violation":
+          return <>{t(violation.violation.toLowerCase())}</>;
+        case "severity":
+          return (
+            <Chip
+              className="capitalize"
+              color={statusColorMap[violation.severity]}
+              size="sm"
+              variant="flat"
+            >
+              {t(cellValue)}
+            </Chip>
+          );
+        default:
+          return cellValue;
+      }
+    },
+    []
+  );
+
+  return (
+    <Table
+      aria-label="Live violations table"
+      classNames={{ wrapper: "bg-gray-400/30 border-1 border-primary h-full" }}
+      className={className}
+    >
+      <TableHeader columns={columns}>
+        {(column) => (
+          <TableColumn
+            key={column.uid}
+            align={column.uid === "actions" ? "center" : "start"}
+          >
+            {t(column.name.toLowerCase())}
+          </TableColumn>
+        )}
+      </TableHeader>
+      <TableBody items={violations}>
+        {(item) => (
+          <TableRow key={item.id}>
+            {(columnKey) => (
+              <TableCell>{renderCell(item, columnKey)}</TableCell>
+            )}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+  );
+}

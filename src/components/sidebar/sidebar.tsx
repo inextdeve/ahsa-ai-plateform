@@ -72,9 +72,10 @@ export const SidebarWrapper = () => {
                 href="road-monitoring"
               />
               <SidebarItem
-                isActive={pathCheck("/service-tracking", pathname)}
+                isActive={pathCheck("/tracking", pathname)}
                 icon={<ListTodo />}
                 title={t("serviceTracking")}
+                href="tracking"
               />
               <SidebarItem
                 isActive={pathCheck("/live-streaming", pathname)}

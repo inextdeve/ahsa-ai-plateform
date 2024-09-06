@@ -28,6 +28,7 @@ export type Namespaces = (
   | "auth"
   | "road"
   | "live"
+  | "tracking"
 )[];
 
 export const i18nNamespaces: Namespaces = [
@@ -38,6 +39,7 @@ export const i18nNamespaces: Namespaces = [
   "auth",
   "road",
   "live",
+  "tracking",
 ];
 
 export default i18nConfig;

@@ -4,5 +4,8 @@
   "vehiclesThisMinute": "المركبات في هذه اللحظة",
   "trafficViolations": "مخالفات السير",
   "accidents": "الحوادث",
-  "peakRate": "معدل الذروة"
+  "peakRate": "معدل الذروة",
+  "totalStreetLength": "اجمالي اطوال الشوارع",
+  "wasRecorded": "تم تصويره (كم)",
+  "violations": "الملاحظات المرصودة"
 }
