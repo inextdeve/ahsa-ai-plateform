@@ -1,6 +1,22 @@
 {
-    "empty": "Empty",
-    "unempty": "Unempty",
-    "incomplete": "Incomplete",
-    "all": "All"
+  "empty": "Empty",
+  "unempty": "Unempty",
+  "empted": "Empted",
+  "unempted": "Unempted",
+  "incomplete": "Incomplete",
+  "all": "All",
+  "project": "Project",
+  "selectProject": "Select Project",
+  "area": "Area",
+  "selectArea": "Select Area",
+  "route": "Route",
+  "selectRoute": "Select route",
+  "neighborhood": "Neighborhood",
+  "selectNeighborhood": "Select Neighborhood",
+  "binType": "Bin type",
+  "selectType": "Select type",
+  "status": "Status",
+  "close": "Close",
+  "apply": "Apply",
+  "filter": "Filter"
 }

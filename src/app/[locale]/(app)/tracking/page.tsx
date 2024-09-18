@@ -1,5 +1,6 @@
 import TransparentCard from "@/components/common/transparent-card";
-import ServiceTrackingMap from "@/components/service-tracking/service-tracking-map";
+import TrackingMapFilter from "@/components/tracking/map-filter";
+import ServiceTrackingMap from "@/components/tracking/service-tracking-map";
 import { CardBody, CardHeader } from "@nextui-org/react";
 
 const Page = () => {
@@ -7,7 +8,9 @@ const Page = () => {
     <section>
       <div>
         <TransparentCard>
-          <CardHeader>Filter</CardHeader>
+          <CardHeader>
+            <TrackingMapFilter />
+          </CardHeader>
           <CardBody className="h-[400px]">
             <div className="w-full h-full rounded overflow-hidden relative">
               <ServiceTrackingMap />

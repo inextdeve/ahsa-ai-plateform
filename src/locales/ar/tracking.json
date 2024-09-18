@@ -1,6 +1,22 @@
 {
-    "empty": "مفرغة",
-    "unempty": "غير مفرغة",
-    "incomplete": "تفريغ غير كامل",
-    "all": "الكل"
+  "empty": "مفرغة",
+  "unempty": "غير مفرغة",
+  "empted": "مفرغة",
+  "unempted": "غير مفرغة",
+  "incomplete": "تفريغ غير كامل",
+  "all": "الكل",
+  "project": "المشروع",
+  "selectProject": "اختر مشروع",
+  "area": "المنطقة",
+  "selectArea": "اختر منطقة",
+  "route": "المسار",
+  "selectRoute": "اختر مسار",
+  "neighborhood": "الحي",
+  "selectNeighborhood": "اختر الحي",
+  "binType": "نوع الحاوية",
+  "selectType": "اختر النوع",
+  "status": "الحالة",
+  "close": "إغلاق",
+  "apply": "تطبيق",
+  "filter": "ترشيح متقدم"
 }
